@@ -1,0 +1,11 @@
+on cherche partout les fichiers qui appartiennent au user "flag00", on redirige les erreurs vers la sortie d'erreur
+
+find / -user flag00 2>/dev/null
+
+->cat  /usr/sbin/john
+
+= cdiiddwpgswtgt
+
+--> dcode.fr -> outils pour la cryptographie -> code Cesar -> decalage de 15
+
+= nottoohardhere
