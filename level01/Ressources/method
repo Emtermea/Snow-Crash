@@ -1,0 +1,21 @@
+get john-1.8.0.tar.xz sur openwall
+on copie dans la VM:
+scp -r -P 4242 PATH/Snow-Crash/john-1.8.0.tar.xz level01@10.12.1.111:/tmp/Okay
+
+tar xf john-1.8.0.tar.xz
+cd john-1.8.0/src
+make clean generic
+
+on copie le fichier /etc/passwd dans /tmp/Okay (seul endroit avec les droits d'ecriture)
+cd /tmp/Okay/john-1.8.0/run
+
+on execute ./john
+./john ../../passwd
+
+--> abcdefg
+
+su flag01
+getflag XXX
+
+su level02
+passwd = XXX
