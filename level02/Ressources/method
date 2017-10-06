@@ -1,0 +1,13 @@
+Dans la VM:
+changer les droits de level02.pcap (666)
+le copier dans /tmp/[UN DOSSIER]/
+
+en local:
+scp -r -P 4242 level02@[IP VM]:/tmp/[UN DOSSIER]/level02.pcap .
+
+mettre le fichier sur CloudShark.org
+filtrer en DATA
+
+check frame 43 "passwd"
+le mdp est en hexa de la frame 45 a 85:
+ft_wandr[del][del][del]NDRel[del]L0L[cr]
