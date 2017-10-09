@@ -1,0 +1,18 @@
+Comme dans le precedant, un script avec les droits SUID de flag09 et un fichier `token` seulement avec les droits de lecture: il est crypte
+`level09` doit prendre un arg
+en testant le binaire level09 avec un argument on voit qu'il renvoie l'arg en changeant les caracteres par son index dans la string :
+./level09 abcd
+aceg
+
+il faut donc qu'on affiche sans le cryptage
+on copie le script script.py dans /tmp :
+
+-> scp -r -P 4242 PATH/to/Snowcrash/level09/Ressources/script.py level09@[IP VM]:/tmp/
+
+dans la VM, dans /tmp on execute le script de decryptage sur `token`:
+-> python script.py `cat  ~/token`
+
+on obtient le token pour le user flag09:
+-> su flag09
+
+-> getflag
