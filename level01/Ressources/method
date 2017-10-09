@@ -1,6 +1,6 @@
 get john-1.8.0.tar.xz sur openwall
 on copie dans la VM:
-scp -r -P 4242 PATH/Snow-Crash/john-1.8.0.tar.xz level01@[IP VM]]:/tmp/Okay
+scp -r -P 4242 PATH/Snow-Crash/john-1.8.0.tar.xz level01@[IP VM]:/tmp/Okay
 
 on tar dans la VM:
 tar xf john-1.8.0.tar.xz
