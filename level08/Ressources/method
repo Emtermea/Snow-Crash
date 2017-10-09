@@ -1,9 +1,9 @@
-level08 a les droits SUID
+level08 a les droits SUID (proprietaire flag08)
 avec un strings sur level08 on voit qu'il doit utiliser le fichier `token` present dans le meme repertoire
 level08 prend un parametre
 il faut donc qui level08 prenne token en parametre pour le lire
 ->`You may not access`
-il ne peut pas y avaoir acces directement donc on doit creer un lien symbolique de `token` (token du user flag08) avec un fichier present dans /tmp
+il ne peut pas y avaoir acces directement car il n'a que les droits de lecture ecriture de son proprietaire donc on doit creer un lien symbolique de `token` (token du user flag08) avec un fichier present dans /tmp
 unique endroit avec les droits:
 (ln -s nom_du_fichier_source nom_du_lien)
 ->ln -s ~/token /tmp/flag
