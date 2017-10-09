@@ -5,6 +5,7 @@ il faut donc qui level08 prenne token en parametre pour le lire
 ->`You may not access`
 il ne peut pas y avaoir acces directement donc on doit creer un lien symbolique de `token` (token du user flag08) avec un fichier present dans /tmp
 unique endroit avec les droits:
+(ln -s nom_du_fichier_source nom_du_lien)
 ->ln -s ~/token /tmp/flag
 
 on peut verifier que notre lien est bien en place:
