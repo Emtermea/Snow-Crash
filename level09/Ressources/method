@@ -4,7 +4,7 @@ en testant le binaire level09 avec un argument on voit qu'il renvoie l'arg en ch
 ./level09 abcd
 aceg
 
-il faut donc qu'on affiche sans le cryptage
+il faut donc qu'on l'affiche sans le cryptage
 on copie le script script.py dans /tmp :
 
 -> scp -r -P 4242 PATH/to/Snowcrash/level09/Ressources/script.py level09@[IP VM]:/tmp/
