@@ -1,0 +1,21 @@
+quand on execute le binaire:
+`UID 2013 started us but we we expect 4242`
+on suppose donc qu'il faut changer l'id par default par 4242, on doit donc override la fct `getuid`
+
+-> echo "int getuid () { return (4242);} int geteuid () { return (4242); }" > /tmp/myuid.c
+
+On veut temporairement substituer la librairie par default par la notre (exemple video de Malloc) pour avoir l'id 4242:
+
+dans /tmp:
+-> gcc -shared -o /tmp/myuid.so /tmp/myuid.c
+
+pour verifier, on doit voir `getuid` avec :
+-> nm myuid.so
+
+Pour appliquer notre librairie on doit changer une variable d'env LD_LIBRARY_PATH:
+-> export LD_PRELOAD=/tmp/myuid.so
+
+-> cp ~/level13 /tmp/
+executer dans /tmp ./level13 et on a le flag
+
+-> su level14
