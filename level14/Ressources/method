@@ -45,3 +45,5 @@ a partir de celle ci on compte la 15eme (puisque on a deja les flag pour acceder
 Continuing at 0x8048de5.
 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
 *** stack smashing detected ***: /bin/getflag terminated
+
+-> su flag14
